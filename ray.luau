@@ -25,6 +25,8 @@ local DestoryButton = Tab:CreateButton({
 
 local Section_Mangoes = Tab:CreateSection("Mangoes")
 
+local waitTime_Mangoes = 0
+
 local mangoes = Tab:CreateToggle({
     Name = "AutoCollect",
     CurrectValue = false,
@@ -54,7 +56,57 @@ local mangoes = Tab:CreateToggle({
                     end
                 end
             end
-            task.wait(1)
+            task.wait(waitTime_Mangoes)
         end
+    end,
+})
+
+local mangoes_Slider = Tab:CreateSlider({
+    Name = "Wait Time",
+    Range = {0, 1},
+    Increment = 0.1,
+    CurrectValue = 0.5,
+    Callback = function(Value)
+        waitTime_Mangoes = Value
+    end,
+})
+
+local Section_Gamble = Tab:CreateSection("Gamble")
+
+local waitTime_Gamble = 0
+
+local gambling = Tab:CreateToggle({
+    Name = "AutoRoll",
+    CurrectValue = false,
+    Callback = function(Value)
+
+        if Value then
+            Rayfield:Notify({
+                Title = "EUT Exploit",
+                Content = "Gambling AUTO ON",
+                Duration = 5,
+            })
+        else
+            Rayfield:Notify({
+                Title = "EUT Exploit",
+                Content = "Gambling AUTO OFF",
+                Duration = 5,
+            })
+        end
+
+        while Value do
+            game.ReplicatedStorage.remotes.gamble:InvokeServer()
+            task.wait(waitTime_Gamble)
+        end
+    end,
+})
+
+local Gamble_Slider = Tab:CreateSlider({
+    Name = "Wait Time",
+    Range = {0, 1},
+    Increment = 0.1,
+    CurrectValue = 0.5,
+    Callback = function(Value)
+        waitTime_Gamble = Value
     end,
 })

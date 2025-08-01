@@ -16,9 +16,13 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", "rewind")
 
+local Section = Tab:CreateSection("Section Example")
+
 local _DestoryButton = Tab:CreateButton({
     Name = "Destroy GUI",
     Callback = function()
         Rayfield:Destroy()
     end,
 })
+
+local Section2 = Tab:CreateSection("Section Example 2")

@@ -17,8 +17,8 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Main", "rewind")
 
 local _DestoryButton = Tab:CreateButton({
-    Name = "Destory GUI",
+    Name = "Destroy GUI",
     Callback = function()
-        Rayfield:Destory()
+        Rayfield:Destroy()
     end,
 })

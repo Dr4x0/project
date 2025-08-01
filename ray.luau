@@ -1,0 +1,24 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "EUT Control Panel",
+    Icon = 95322022164482,
+    LoadingTitle = "Enjoy Exploiting!!!",
+    LoadingSubtitle = "Made by Dr4x0z",
+    ShowText = "Hello",
+    Theme = "Default",
+
+    ToggleUIKeybind = "P",
+
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+})
+
+local Tab = Window:CreateTab("Main", "rewind")
+
+local _DestoryButton = Tab:CreateButton({
+    Name = "Destory GUI",
+    Callback = function()
+        Rayfield:Destory()
+    end,
+})
